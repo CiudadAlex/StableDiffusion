@@ -1,4 +1,5 @@
-pip install cuda-python==11.6.1
-pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116
+./venv/Scripts/python -m pip install --upgrade pip
+./venv/Scripts/pip install cuda-python==11.6.1
+./venv/Scripts/pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116
 
-pip install -q --upgrade transformers diffusers ftfy
+./venv/Scripts/pip install -q --upgrade transformers diffusers ftfy
