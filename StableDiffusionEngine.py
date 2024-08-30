@@ -147,8 +147,8 @@ def generate_image_prompt_embedding(text_embeddings, height=512, width=512, num_
 def generate_and_display_pair_related_images(prompt1, prompt2):
     image1 = generate_image_prompt(prompt1, height=400, width=400, num_inference_steps=30)
     image2 = generate_image_prompt(prompt2, height=400, width=400, num_inference_steps=30, initial_image=image1, start_step=10)
-    image1.save("out/image_pair_1.jpg")
-    image2.save("out/image_pair_2.jpg")
+    image1.save(".out/image_pair_1.jpg")
+    image2.save(".out/image_pair_2.jpg")
 
 
 def generate_transition_prompt_embeddings(prompt1, prompt2, num_steps=10):
