@@ -7,5 +7,5 @@ class ImageUtils:
         for image in list_images:
             gif.append(image)
 
-        gif[0].save(file_name, save_all=True, optimize=False, append_images=gif[1:], duration=40, loop=0)
+        gif[0].save(file_name, save_all=True, optimize=False, append_images=gif[1:], duration=1000, loop=0)
 
