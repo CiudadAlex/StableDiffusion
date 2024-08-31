@@ -144,11 +144,11 @@ def generate_image_prompt_embedding(text_embeddings, height=512, width=512, num_
     return latents_to_pil(latents)
 
 
-def generate_and_display_pair_related_images(prompt1, prompt2):
+def generate_and_display_pair_related_images(prompt1, prompt2, output_path):
     image1 = generate_image_prompt(prompt1, height=400, width=400, num_inference_steps=30)
     image2 = generate_image_prompt(prompt2, height=400, width=400, num_inference_steps=30, initial_image=image1, start_step=10)
-    image1.save(".out/image_pair_1.jpg")
-    image2.save(".out/image_pair_2.jpg")
+    image1.save(output_path + "/image_pair_1.jpg")
+    image2.save(output_path + "/image_pair_2.jpg")
 
 
 def generate_transition_prompt_embeddings(prompt1, prompt2, num_steps=10):
@@ -195,19 +195,11 @@ def generate_transition_images_smooth(prompt1, prompt2, num_steps=10):
     return list_images
 
 
-def generate_gif(file_name, list_images):
-    gif = []
-    for image in list_images:
-        gif.append(image)
-    gif[0].save(file_name, save_all=True, optimize=False, append_images=gif[1:], loop=0)
-    # FIXME duplicate images to make longer the gif
-
-
 def transform_image(image_path, out_path, prompt, start_step=10):
-
     with Image.open(image_path) as image:
-        image_real = generate_image_prompt(prompt, height=400, width=400, num_inference_steps=30, initial_image=image,
-                                           start_step=start_step)
+        image_real = generate_image_prompt(prompt, height=400, width=400, num_inference_steps=30,
+                                           initial_image=image, start_step=start_step)
         image_real.save(out_path)
+
 
 
