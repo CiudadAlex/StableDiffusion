@@ -30,13 +30,13 @@ if "Mix" in commands or "All" in commands:
 if "Gif" in commands or "All" in commands:
     print("Gif")
     list_images = sde.generate_transition_images_smooth("a photograph of the face of a cat", "a photograph of the face of an eagle")
-    ImageUtils.generate_gif(".out/cat_dog_transition.gif", list_images)
+    ImageUtils.generate_gif(".out/transition.gif", list_images)
 
 
 if "Transforms" in commands or "All" in commands:
     print("Transforms")
-    sde.transform_image(".images/Dibujo1.jpg", ".out/Dibujo1_real.jpg", "a photograph of a lion smiling, head and body view", start_step=14)
-    sde.transform_image(".images/Dibujo2.jpg", ".out/Dibujo2_real.jpg", "a photograph of a big factory made with bricks and with chimneys and smoke", start_step=14)
-    sde.transform_image(".images/Dibujo3.jpg", ".out/Dibujo3_real.jpg", "a photograph of a duck swimming in a puund, with a beck", start_step=16)
+    sde.transform_image(".images/Dibujo_leon.jpg", ".out/Dibujo_leon_real.jpg", "a photograph of a lion smiling, head and body view", start_step=14)
+    sde.transform_image(".images/Dibujo_fabrica.jpg", ".out/Dibujo_fabrica_real.jpg", "a photograph of a big factory made with bricks and with chimneys and smoke", start_step=14)
+    sde.transform_image(".images/Dibujo_pato.jpg", ".out/Dibujo_pato_real.jpg", "a photograph of a duck swimming in a puund, with a beck", start_step=16)
     # sde.transform_image(".images/Alex.jpg", ".out/Alex_out.jpg", "an anime character, manga, boy laying and smiling", start_step=8)
 
