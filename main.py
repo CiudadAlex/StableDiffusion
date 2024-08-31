@@ -38,5 +38,5 @@ if "Transforms" in commands or "All" in commands:
     sde.transform_image(".images/Dibujo_leon.jpg", ".out/Dibujo_leon_real.jpg", "a very detailed drawing of a lion smiling, head and lateral body view with colors", start_step=14)
     sde.transform_image(".images/Dibujo_fabrica.jpg", ".out/Dibujo_fabrica_real.jpg", "a very detailed drawing of the front part of a big building made with bricks and with chimneys and smoke, with colors", start_step=14)
     sde.transform_image(".images/Dibujo_pato.jpg", ".out/Dibujo_pato_real.jpg", "a very detailed drawing of a duck swimming in a pond, with a beck, with colors", start_step=16)
-    # sde.transform_image(".images/Alex.jpg", ".out/Alex_out.jpg", "an anime character, manga, boy laying and smiling", start_step=8)
+    sde.transform_image(".images/Alex.jpg", ".out/Alex_out.jpg", "an anime character, manga, boy laying and smiling", start_step=8)
 
