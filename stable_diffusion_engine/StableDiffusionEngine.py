@@ -7,14 +7,7 @@ from torch import autocast
 from torchvision import transforms as tfms
 from tqdm.auto import tqdm
 from transformers import CLIPTextModel, CLIPTokenizer, logging
-import gc
-
-
-def free_gpu():
-    torch.no_grad()
-    torch.cuda.empty_cache()
-    gc.collect()
-
+from utils.MemoryUtils import MemoryUtils
 
 torch.manual_seed(1)
 if not (Path.home() / '.huggingface' / 'token').exists(): notebook_login()
@@ -90,7 +83,7 @@ def generate_image_prompt(prompt, height=512, width=512, num_inference_steps=30,
 def generate_image_prompt_embedding(text_embeddings, height=512, width=512, num_inference_steps=30, initial_image=None,
                                     start_step=0, batch_size=1):
 
-    free_gpu()
+    MemoryUtils.free_gpu()
 
     guidance_scale = 7.5
     generator = torch.manual_seed(32)
@@ -120,6 +113,8 @@ def generate_image_prompt_embedding(text_embeddings, height=512, width=512, num_
     # Loop
     with autocast("cuda"):
         for i, t in tqdm(enumerate(scheduler.timesteps)):
+
+            MemoryUtils.free_gpu()
 
             if i >= start_step:  # << This is the only modification to the loop we do
 

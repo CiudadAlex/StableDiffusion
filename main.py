@@ -1,8 +1,14 @@
 from stable_diffusion_engine import StableDiffusionEngine as sde
 from utils.ImageUtils import ImageUtils
 
+'''
+WARNING:
 
-commands = ["Transforms"]
+In order to work and not get OutOfMemory Error in CUDA the images must be at most 400x400
+
+'''
+
+commands = ["All"]
 
 if "Generate" in commands or "All" in commands:
     print("Generate")
